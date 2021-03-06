@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'norwesterregular', sans-serif;
+$main: 'Open Sans', sans-serif;
+$sub: 'norwesterregular', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: unset;
+}
+ul{
+    list-style: none;
+}
+body{
+    font-family: $main;
+}

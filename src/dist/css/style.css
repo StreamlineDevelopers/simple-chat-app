@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+.normal-0 {
+  font-size: 1rem;
+}
+
+.normal-1 {
+  font-size: 1rem;
+}
+
+.normal-2 {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.125rem;
+  }
+  h2 {
+    font-size: 1.875rem;
+  }
+  .normal-0 {
+    font-size: 1.625rem;
+  }
+  .normal-1 {
+    font-size: 1.25rem;
+  }
+  .normal-2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+  h2 {
+    font-size: 1.875rem;
+  }
+  .normal-0 {
+    font-size: 1.625rem;
+  }
+  .normal-1 {
+    font-size: 1.5rem;
+  }
+  .normal-2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  h1 {
+    font-size: 4.375rem;
+  }
+  h2 {
+    font-size: 3.125rem;
+  }
+  .normal-0 {
+    font-size: 2.5rem;
+  }
+  .normal-1 {
+    font-size: 1.75rem;
+  }
+  .normal-2 {
+    font-size: 1.5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

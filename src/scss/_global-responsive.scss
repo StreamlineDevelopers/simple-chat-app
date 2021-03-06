@@ -1,0 +1,17 @@
+// for mobile
+@include setFontSize(s);
+
+// responsive medium screen //768px
+@include media-md{
+    @include setFontSize(m);
+}
+
+// responsive large screen //1200px
+@include media-lg{
+    @include setFontSize(l);
+}
+
+// responsive large screen //1900px
+@include media-xl{
+    @include setFontSize(xl);
+}

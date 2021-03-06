@@ -1,0 +1,67 @@
+// font size
+@function getFontSize($type, $target){ 
+    @if $type == s {    
+        @return map-get($font-size-s, $target);
+    }@else if $type == m {
+        @return map-get($font-size-m, $target);
+    }@else if $type == l {
+        @return map-get($font-size-l, $target);
+    }@else if $type == xl {
+        @return map-get($font-size-xl, $target);
+    }@else{
+        @error "Invalid type #{type}."
+    } 
+};
+@mixin setFontSize($type){
+    h1{
+        font-size: getFontSize($type, h1);
+    }
+    h2{
+        font-size: getFontSize($type, h2);
+    }
+    .normal-0{
+        font-size: getFontSize($type, normal-0);
+    }
+    .normal-1{
+        font-size: getFontSize($type, normal-1);
+    }
+    .normal-2{
+        font-size: getFontSize($type, normal-2);
+    }
+};
+
+// max width
+@function getMaxWidth($target){
+    @return map-get($max-width, $target);
+};
+
+// responsive mixin
+@mixin media-md{
+    @media screen and (min-width: 768px){
+        @content;
+    }
+};
+@mixin media-lg{
+    @media screen and (min-width: 1200px){
+        @content;
+    }
+};
+@mixin media-xl{
+    @media screen and (min-width: 1900px){
+        @content;
+    }
+};
+
+// display flex
+@mixin setFlex($direction, $align1, $align2){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $align1;
+    align-items: $align2;
+    align-content: $align2;
+};
+
+// get colors
+@function getColors($target){
+    @return map-get($colors, $target)
+};
