@@ -13,5 +13,5 @@
 
 // responsive large screen //1900px
 @include media-xl{
-    @include setFontSize(xl);
-}
+    // @include setFontSize(xl);
+} // the design will not include 1900px 

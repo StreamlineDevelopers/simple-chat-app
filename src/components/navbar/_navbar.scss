@@ -1,0 +1,48 @@
+.navbar{
+    position: relative;
+    background: getColors(secondary);
+
+    &-wrapper{
+        @include setFlex(row, space-between, center);
+        position: relative;
+        padding: 1.5rem 2rem;
+    }
+
+    &__items{
+        @include setFlex(row, center, center);
+        li{
+            background: getColors(dark);
+            color: getColors(primary);
+            border-radius: 2rem;
+            padding: .3rem 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 150ms linear;
+            &:nth-of-type(1),
+            &:nth-of-type(2){
+                margin: 0 .5rem;
+            }
+            &.less{
+                background: getColors(secondary);
+                border: 1px solid;
+                border-color: getColors(darker);
+
+                color: getColors(dark);
+            }
+            @media(hover:hover){
+                &:hover{
+                    color: getColors(secondary-light);
+                }
+            }
+        }
+        &--out{
+            display: flex;
+        }
+        &--in{
+            display: flex;
+        }
+    }
+  
+}
+@import './navbarResponsive';

@@ -1,29 +1,25 @@
 // font size variables
 $font-size-s: (
-    "h1" : 2.5rem,
+    "h1" : 1.75rem,
     "h2" : 1.25rem,
-    "normal-0" : 1rem, 
     "normal-1" : 1rem,  //16px
     "normal-2" : 0.75rem //12px 
 );
 $font-size-m: (
-    "h1" : 3.125rem,
-    "h2" : 1.875rem,
-    "normal-0" : 1.625rem,
+    "h1" : 2.25rem,
+    "h2" : 1.50rem,
     "normal-1" : 1.25rem, //20px
     "normal-2" : 1rem //16px
 );
 $font-size-l: (
-    "h1" : 3.75rem,
-    "h2" : 1.875rem,
-    "normal-0" : 1.625rem,
+    "h1" : 2.75rem,
+    "h2" : 1.75rem,
     "normal-1" :  1.5rem, //24px
     "normal-2" : 1.25rem //20px
 );
 $font-size-xl: (
     "h1" : 4.375rem,
-    "h2" : 3.125rem,
-    "normal-0" : 2.5rem,
+    "h2" : 2rem,
     "normal-1" : 1.75rem, //28px
     "normal-2" : 1.5rem //24px
 );
@@ -38,16 +34,13 @@ $max-width: (
 
 // colors
 $colors: (
-    "primary-solid":#07192D,
-    "primary-light":#016685,
-    "primary-more-light":#049ac7, 
-    "primary-semi-solid": #091C31,
-    "primary-semi-light": #0D335D,
-    "secondary-solid":#7b7b7b,
-    "secondary-light":#c3c3c3,
-    "white": #FFFFFF,
-    "white-pink": #FEF8F8
+   'primary': #EEEEEE,
+   'secondary': #DCDCDC,
+   'secondary-light': #9C9C9C,
+   'dark' : #484848,
+   'darker-light': #808080,
+   'online': #1AE836
 );
 
-// box shadow
+// custom
 $little-shadow: 0px 3px 8px #00000025;

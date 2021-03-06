@@ -4,10 +4,16 @@
 @import 'functions';
 
 // components
+@import '../components/navbar/navbar';
 
-// @import '../components/p-item_holder/p-item_holder';
+// component modal
+@import '../components/modal/createRoom/createRoom';
+@import '../components/modal/joinRoom/joinRoom';
 
 // pages
+@import '../pages/login/login';
+@import '../pages/register/register';
+@import '../pages/dashboard/dashboard';
 
 // responsive
 @import 'global-responsive';

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 require('dotenv').config();
 
 // setup express
@@ -9,8 +10,6 @@ app.use(express.json());
 app.use(cors());
 
 const port = process.env.port || 5000;
-
-app.listen(port, () => console.log(`Server started on port ${port}`));
 
 // setup mongoose //connection to mongoDB
 mongoose.connect(
@@ -27,4 +26,11 @@ mongoose.connect(
 );
 
 // set up routers
-app.use("/", require("./routers/serverRouter")); 
+const authRoutes = require('./routers/auth.js');
+const postRoutes = require('./routers/post.js');
+
+// Route Middlewares
+app.use('/api/user', authRoutes); 
+app.use('/api/posts', postRoutes); 
+
+app.listen(port, () => console.log(`Server started on port ${port}`));

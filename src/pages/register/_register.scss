@@ -1,0 +1,110 @@
+.register{
+    @include setFlex(row, center, center);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: getColors(primary);
+
+    &-card{
+        @include setFlex(column, center, center);
+
+        position: relative;
+        background: getColors(secondary);
+        padding: 1rem;
+        width: 100%;
+        max-width: 26.875rem;
+        box-shadow: $little-shadow;
+        border-radius: 2rem;
+        color: getColors(dark);
+        letter-spacing: 2px;
+        margin: 1.5rem;
+        h2{
+            font-family: $sub;
+            margin: 2rem 0;
+        }
+
+        form{
+            @include setFlex(column, center, center);
+            position: relative;
+            width: 100%;
+            
+            div{
+                position: relative;
+                display: flex;
+                width: 100%;
+                margin-bottom: 1rem;
+                label{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    font-weight: bold;
+                    opacity: .4;
+                    transition: 150ms all linear;
+                }
+    
+                input{
+                    padding: 0 1rem;
+                    padding-bottom:.5rem ;
+                    padding-top: 1.2rem;
+                    outline: none;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px solid gray;
+                    text-align: center;
+                    width: 100%;
+    
+                    &:focus,
+                    &:valid{
+                        border-color: getColors(active);
+                        color: getColors(active-light);
+    
+                        & ~ label{
+                            width: 30%;
+                            height: 30%;
+                            margin-bottom: 1rem;
+                            color: getColors(active);
+                            opacity: 1;
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+    
+            button{
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                padding: .3rem 1rem;
+                border-radius: 1rem;
+                border: none;
+                background: getColors(dark);
+                color: getColors(primary);
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 2px;
+                outline: none;
+                transition: 150ms linear;
+                @media(hover:hover){
+                    &:hover{
+                        color: getColors(secondary-light);
+                    }
+                }
+            }
+        }
+        span{
+            position: relative;
+            text-decoration: underline;
+            font-style: italic;
+            transition: 150ms linear;
+            @media(hover:hover){
+                &:hover{
+                    color: getColors(darker-light);
+                }
+            }
+        }
+    }
+}
+@import './registerResponsive';

@@ -1,30 +1,33 @@
 {
-  "name": "main",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "front":"cd ../front-end && npm start",
-    "dev":"concurrently \"npm run server\" \"npm run front\""
+    "front": "cd .. && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run front\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mark-makondo/Portfolio.git"
+    "url": "git+https://github.com/mark-makondo/simple-chat-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mark-makondo/Portfolio/issues"
+    "url": "https://github.com/mark-makondo/simple-chat-app/issues"
   },
-  "homepage": "https://github.com/mark-makondo/Portfolio#readme",
+  "homepage": "https://github.com/mark-makondo/simple-chat-app#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.17"
   },
   "devDependencies": {

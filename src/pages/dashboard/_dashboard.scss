@@ -1,0 +1,39 @@
+.dashboard{
+    position: relative;
+    width: 100%;
+    &-wrapper{
+        @include setFlex(column, center, center);
+
+        position: relative;
+        color: getColors(dark);
+        h1{
+            font-family: $sub;
+            letter-spacing: 2px;
+            margin: 3rem;
+        }
+        button{
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            outline: none;
+            border: none;
+            background: getColors(primary);
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 2rem;
+            transition: 150ms linear;
+            @media(hover:hover){
+                &:hover{
+                    color: white;
+                    background: getColors(dark);
+                }
+            }
+        }
+    }
+    &__buttons{
+        max-width: 22.5rem;
+        height: 8.4375rem;
+        margin-top: 1rem;
+    }
+}
+@import './dashboardResponsive';

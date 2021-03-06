@@ -19,16 +19,727 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.navbar {
+  position: relative;
+  background: #DCDCDC;
+}
+
+.navbar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+
+.navbar__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.navbar__items li {
+  background: #484848;
+  color: #EEEEEE;
+  border-radius: 2rem;
+  padding: .3rem 1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.navbar__items li:nth-of-type(1), .navbar__items li:nth-of-type(2) {
+  margin: 0 .5rem;
+}
+
+.navbar__items li.less {
+  background: #DCDCDC;
+  border: 1px solid;
+  color: #484848;
+}
+
+@media (hover: hover) {
+  .navbar__items li:hover {
+    color: #9C9C9C;
+  }
+}
+
+.navbar__items--out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar__items--in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.create-room-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: fixed;
+  background: #0e0e0e78;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.create-room-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.create-room-modal__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 60vmin;
+  height: auto;
+  background: #DCDCDC;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.create-room-modal__wrapper form {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.create-room-modal__wrapper form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.create-room-modal__wrapper form input {
+  outline: none;
+}
+
+.create-room-modal__wrapper form input::-webkit-input-placeholder {
+  opacity: .3;
+}
+
+.create-room-modal__wrapper form input:-ms-input-placeholder {
+  opacity: .3;
+}
+
+.create-room-modal__wrapper form input::-ms-input-placeholder {
+  opacity: .3;
+}
+
+.create-room-modal__wrapper form input::placeholder {
+  opacity: .3;
+}
+
+.create-room-modal__wrapper form input:nth-of-type(1) {
+  width: 100%;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-weight: 600;
+  border-style: solid;
+  text-align: center;
+}
+
+.create-room-modal__wrapper form input:nth-of-type(2) {
+  margin-top: 1rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .create-room-modal__wrapper form input:nth-of-type(2):hover {
+    color: #9C9C9C;
+  }
+}
+
+.join-room-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: fixed;
+  background: #0e0e0e78;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.join-room-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.join-room-modal__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 60vmin;
+  height: auto;
+  background: #DCDCDC;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.join-room-modal__wrapper form {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.join-room-modal__wrapper form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.join-room-modal__wrapper form input {
+  margin-top: 1rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .join-room-modal__wrapper form input:hover {
+    color: #9C9C9C;
+  }
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #EEEEEE;
+}
+
+.login-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  background: #DCDCDC;
+  padding: 1rem;
+  width: 100%;
+  max-width: 26.875rem;
+  -webkit-box-shadow: 0px 3px 8px #00000025;
+          box-shadow: 0px 3px 8px #00000025;
+  border-radius: 2rem;
+  color: #484848;
+  letter-spacing: 2px;
+  margin: 1.5rem;
+}
+
+.login-card h2 {
+  font-family: "norwesterregular", sans-serif;
+  margin: 2rem 0;
+}
+
+.login-card form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.login-card form div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.login-card form div label {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-weight: bold;
+  opacity: .4;
+  -webkit-transition: 150ms all linear;
+  transition: 150ms all linear;
+}
+
+.login-card form div:nth-of-type(1) {
+  margin-bottom: 1rem;
+}
+
+.login-card form div input {
+  padding: 0 1rem;
+  padding-bottom: .5rem;
+  padding-top: 1.2rem;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  width: 100%;
+}
+
+.login-card form div input:focus ~ label, .login-card form div input:valid ~ label {
+  width: 30%;
+  height: 30%;
+  margin-bottom: 1rem;
+  opacity: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.login-card form button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .login-card form button:hover {
+    color: #9C9C9C;
+  }
+}
+
+.login-card span {
+  position: relative;
+  text-decoration: underline;
+  font-style: italic;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .login-card span:hover {
+    color: #808080;
+  }
+}
+
+.register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #EEEEEE;
+}
+
+.register-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  background: #DCDCDC;
+  padding: 1rem;
+  width: 100%;
+  max-width: 26.875rem;
+  -webkit-box-shadow: 0px 3px 8px #00000025;
+          box-shadow: 0px 3px 8px #00000025;
+  border-radius: 2rem;
+  color: #484848;
+  letter-spacing: 2px;
+  margin: 1.5rem;
+}
+
+.register-card h2 {
+  font-family: "norwesterregular", sans-serif;
+  margin: 2rem 0;
+}
+
+.register-card form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.register-card form div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.register-card form div label {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-weight: bold;
+  opacity: .4;
+  -webkit-transition: 150ms all linear;
+  transition: 150ms all linear;
+}
+
+.register-card form div input {
+  padding: 0 1rem;
+  padding-bottom: .5rem;
+  padding-top: 1.2rem;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  width: 100%;
+}
+
+.register-card form div input:focus ~ label, .register-card form div input:valid ~ label {
+  width: 30%;
+  height: 30%;
+  margin-bottom: 1rem;
+  opacity: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.register-card form button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .register-card form button:hover {
+    color: #9C9C9C;
+  }
+}
+
+.register-card span {
+  position: relative;
+  text-decoration: underline;
+  font-style: italic;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .register-card span:hover {
+    color: #808080;
+  }
+}
+
+.dashboard {
+  position: relative;
+  width: 100%;
+}
+
+.dashboard-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  color: #484848;
+}
+
+.dashboard-wrapper h1 {
+  font-family: "norwesterregular", sans-serif;
+  letter-spacing: 2px;
+  margin: 3rem;
+}
+
+.dashboard-wrapper button {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: none;
+  border: none;
+  background: #EEEEEE;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2rem;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .dashboard-wrapper button:hover {
+    color: white;
+    background: #484848;
+  }
+}
+
+.dashboard__buttons {
+  max-width: 22.5rem;
+  height: 8.4375rem;
+  margin-top: 1rem;
+}
+
 h1 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
 }
 
 h2 {
   font-size: 1.25rem;
-}
-
-.normal-0 {
-  font-size: 1rem;
 }
 
 .normal-1 {
@@ -41,13 +752,10 @@ h2 {
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 3.125rem;
+    font-size: 2.25rem;
   }
   h2 {
-    font-size: 1.875rem;
-  }
-  .normal-0 {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
   }
   .normal-1 {
     font-size: 1.25rem;
@@ -59,37 +767,16 @@ h2 {
 
 @media screen and (min-width: 1200px) {
   h1 {
-    font-size: 3.75rem;
+    font-size: 2.75rem;
   }
   h2 {
-    font-size: 1.875rem;
-  }
-  .normal-0 {
-    font-size: 1.625rem;
+    font-size: 1.75rem;
   }
   .normal-1 {
     font-size: 1.5rem;
   }
   .normal-2 {
     font-size: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1900px) {
-  h1 {
-    font-size: 4.375rem;
-  }
-  h2 {
-    font-size: 3.125rem;
-  }
-  .normal-0 {
-    font-size: 2.5rem;
-  }
-  .normal-1 {
-    font-size: 1.75rem;
-  }
-  .normal-2 {
-    font-size: 1.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
