@@ -20,6 +20,20 @@ const loginValidation = (data) => {
     return validation.validate(data);
 } // validation for register
 
+const changePassValidation = (data) => {
+    const validation = Joi.object({
+        currentPassword: Joi.string().min(6).required().label('Current Password'),
+        newPassword: Joi.string().min(6).required().label('New Password'),
+        confirmNewPassword: Joi.any().equal(Joi.ref('newPassword'))
+            .required()
+            .label('Confirm New Password')
+            .messages({ 'any.only': '{{#label}} does not match' })
+    })
+
+    return validation.validate(data);
+} // validation for changing password
+
 //export functions to use
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.changePassValidation = changePassValidation;

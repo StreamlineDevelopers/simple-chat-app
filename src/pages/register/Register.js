@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Register = ({ formClickhandler, inputChangeHandler }) => {
+const Register = ({ formClickhandler, inputChangeHandler, error, loading, user }) => {
     
     return(
         <div className="register">
@@ -24,8 +24,11 @@ const Register = ({ formClickhandler, inputChangeHandler }) => {
                     <input id="password" onChange={e => inputChangeHandler(e)} className="normal-1" type="password" autoComplete="off" name="password" required/>
                     <label className="normal-1" htmlFor="password">Password</label>
                 </div>
-                <button className="normal-1" type="submit">Register</button>
+                <button className="normal-1" type="submit">
+                    {loading && <i className="fa fa-circle-o-notch fa-spin"></i>}Register
+                </button>
             </form>
+            {error ? <span className='error'>{error}</span>: ''}
             <Link to="/"><span className="normal-2">Already have an account?</span></Link>
           </div>
         </div>

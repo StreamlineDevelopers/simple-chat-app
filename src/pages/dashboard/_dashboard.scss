@@ -1,6 +1,26 @@
 .dashboard{
     position: relative;
     width: 100%;
+    background: getColors(primary);
+    min-height: 100vh;
+    padding: 0 2rem;
+
+    &__logout{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-left: 0rem;
+        margin-right: auto;
+        cursor: pointer;
+        transition: 150ms linear;
+        
+        @media(hover:hover){
+            &:hover{
+                color: getColors(darker-light);
+            }
+        }
+    }
     &-wrapper{
         @include setFlex(column, center, center);
 
@@ -16,10 +36,11 @@
             letter-spacing: 2px;
             outline: none;
             border: none;
-            background: getColors(primary);
+            background: getColors(secondary);
             font-weight: bold;
             width: 100%;
-            height: 100%;
+            height: 8.4375rem;
+            
             margin-bottom: 2rem;
             transition: 150ms linear;
             @media(hover:hover){
@@ -31,8 +52,8 @@
         }
     }
     &__buttons{
-        max-width: 22.5rem;
-        height: 8.4375rem;
+        width: 80%;
+        height: 100%;
         margin-top: 1rem;
     }
 }

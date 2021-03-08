@@ -9,11 +9,15 @@
 // component modal
 @import '../components/modal/createRoom/createRoom';
 @import '../components/modal/joinRoom/joinRoom';
+@import '../components/modal/editProfile/editProfile';
+@import '../components/modal/changePass/changePass';
+
 
 // pages
 @import '../pages/login/login';
 @import '../pages/register/register';
 @import '../pages/dashboard/dashboard';
+@import '../pages/profile/profile';
 
 // responsive
 @import 'global-responsive';

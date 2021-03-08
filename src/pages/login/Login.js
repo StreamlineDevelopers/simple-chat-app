@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Login = ({ formClickhandler, inputChangeHandler }) => {
-    
+const Login = ({ formClickhandler, inputChangeHandler, error, loading }) => {
+  
     return(
         <div className="login">
           <div className="login-card">
@@ -16,8 +16,12 @@ const Login = ({ formClickhandler, inputChangeHandler }) => {
                     <input id="password" onChange={e => inputChangeHandler(e)} className="normal-1" type="password" autoComplete="off" name="password" required/>
                     <label className="normal-1" htmlFor="password">Password</label>
                 </div>
-                <button className="normal-1" type="submit">Login</button>
+                <button className="normal-1" type="submit">
+                    {loading && <i className="fa fa-circle-o-notch fa-spin"></i>}Login
+                </button>
             </form>
+
+            {error ? <span className='error'>{error}</span>: ''}
             <Link to="/register"><span className="normal-2">Dont have an account?</span></Link>
           </div>
         </div>

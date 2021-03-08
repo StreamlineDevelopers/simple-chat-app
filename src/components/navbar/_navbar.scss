@@ -1,6 +1,19 @@
 .navbar{
     position: relative;
     background: getColors(secondary);
+    cursor: pointer;
+    h2{
+        font-family: $sub;
+        letter-spacing: 2px;
+        color: getColors(dark);
+        transition: 150ms linear;
+        
+        @media(hover:hover){
+            &:hover{
+                color: getColors(darker-light);
+            }
+        }
+    }
 
     &-wrapper{
         @include setFlex(row, space-between, center);
@@ -25,8 +38,8 @@
             }
             &.less{
                 background: getColors(secondary);
-                border: 1px solid;
-                border-color: getColors(darker);
+                border: 2px solid;
+                border-color: getColors(dark);
 
                 color: getColors(dark);
             }

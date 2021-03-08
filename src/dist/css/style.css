@@ -22,6 +22,21 @@ body {
 .navbar {
   position: relative;
   background: #DCDCDC;
+  cursor: pointer;
+}
+
+.navbar h2 {
+  font-family: "norwesterregular", sans-serif;
+  letter-spacing: 2px;
+  color: #484848;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .navbar h2:hover {
+    color: #808080;
+  }
 }
 
 .navbar-wrapper {
@@ -80,7 +95,8 @@ body {
 
 .navbar__items li.less {
   background: #DCDCDC;
-  border: 1px solid;
+  border: 2px solid;
+  border-color: #484848;
   color: #484848;
 }
 
@@ -347,6 +363,332 @@ body {
   }
 }
 
+.edit-profile-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: fixed;
+  background: #0e0e0e78;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.edit-profile-modal .error {
+  text-decoration: none;
+  margin: 1rem 0;
+  color: red;
+}
+
+.edit-profile-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.edit-profile-modal__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 60vmin;
+  height: auto;
+  background: #DCDCDC;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.edit-profile-modal__wrapper form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.edit-profile-modal__wrapper form .fa-spin {
+  font-size: 3rem;
+}
+
+.edit-profile-modal__wrapper form div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.edit-profile-modal__wrapper form div label {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-weight: bold;
+  opacity: .4;
+  -webkit-transition: 150ms all linear;
+  transition: 150ms all linear;
+}
+
+.edit-profile-modal__wrapper form div input {
+  padding: 0 1rem;
+  padding-bottom: .5rem;
+  padding-top: 1.2rem;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  width: 100%;
+}
+
+.edit-profile-modal__wrapper form div input:focus ~ label, .edit-profile-modal__wrapper form div input:valid ~ label {
+  width: 50%;
+  height: 30%;
+  margin-bottom: 1rem;
+  opacity: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.edit-profile-modal__wrapper form button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .edit-profile-modal__wrapper form button:hover {
+    color: #9C9C9C;
+  }
+}
+
+.change-pass-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: fixed;
+  background: #0e0e0e78;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.change-pass-modal .error {
+  text-decoration: none;
+  margin: 1rem 0;
+  color: red;
+}
+
+.change-pass-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.change-pass-modal__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 60vmin;
+  height: auto;
+  background: #DCDCDC;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.change-pass-modal__wrapper form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.change-pass-modal__wrapper form .fa-spin {
+  font-size: 3rem;
+}
+
+.change-pass-modal__wrapper form div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.change-pass-modal__wrapper form div label {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-weight: bold;
+  opacity: .4;
+  -webkit-transition: 150ms all linear;
+  transition: 150ms all linear;
+}
+
+.change-pass-modal__wrapper form div input {
+  padding: 0 1rem;
+  padding-bottom: .5rem;
+  padding-top: 1.2rem;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  width: 100%;
+}
+
+.change-pass-modal__wrapper form div input:focus ~ label, .change-pass-modal__wrapper form div input:valid ~ label {
+  width: 50%;
+  height: 30%;
+  margin-bottom: 1rem;
+  opacity: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.change-pass-modal__wrapper form button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .3rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #484848;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .change-pass-modal__wrapper form button:hover {
+    color: #9C9C9C;
+  }
+}
+
 .login {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,6 +738,12 @@ body {
   color: #484848;
   letter-spacing: 2px;
   margin: 1.5rem;
+}
+
+.login-card .error {
+  text-decoration: none;
+  margin-bottom: .3rem;
+  color: red;
 }
 
 .login-card h2 {
@@ -564,6 +912,12 @@ body {
   margin: 1.5rem;
 }
 
+.register-card .error {
+  text-decoration: none;
+  margin-bottom: .3rem;
+  color: red;
+}
+
 .register-card h2 {
   font-family: "norwesterregular", sans-serif;
   margin: 2rem 0;
@@ -631,7 +985,7 @@ body {
 }
 
 .register-card form div input:focus ~ label, .register-card form div input:valid ~ label {
-  width: 30%;
+  width: 50%;
   height: 30%;
   margin-bottom: 1rem;
   opacity: 1;
@@ -679,6 +1033,27 @@ body {
 .dashboard {
   position: relative;
   width: 100%;
+  background: #EEEEEE;
+  min-height: 100vh;
+  padding: 0 2rem;
+}
+
+.dashboard__logout {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-left: 0rem;
+  margin-right: auto;
+  cursor: pointer;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .dashboard__logout:hover {
+    color: #808080;
+  }
 }
 
 .dashboard-wrapper {
@@ -712,10 +1087,10 @@ body {
   letter-spacing: 2px;
   outline: none;
   border: none;
-  background: #EEEEEE;
+  background: #DCDCDC;
   font-weight: bold;
   width: 100%;
-  height: 100%;
+  height: 8.4375rem;
   margin-bottom: 2rem;
   -webkit-transition: 150ms linear;
   transition: 150ms linear;
@@ -729,9 +1104,235 @@ body {
 }
 
 .dashboard__buttons {
-  max-width: 22.5rem;
-  height: 8.4375rem;
+  width: 80%;
+  height: 100%;
   margin-top: 1rem;
+}
+
+.profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  background: #EEEEEE;
+  min-height: 100vh;
+}
+
+.profile .fa-spin {
+  font-size: 3rem;
+  margin: 2rem;
+}
+
+.profile .buttons {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: none;
+  border: none;
+  background: #484848;
+  color: white;
+  font-weight: bold;
+  border-radius: .5rem;
+  cursor: pointer;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+@media (hover: hover) {
+  .profile .buttons:hover {
+    color: white;
+    background: #808080;
+  }
+  .profile .buttons:hover::-webkit-file-upload-button {
+    color: #808080;
+  }
+}
+
+.profile h2 {
+  margin: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.profile-avatar {
+  position: relative;
+  max-width: 5rem;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 10rem;
+  height: 5rem;
+  background: #808080;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-wrapper {
+  position: relative;
+  background: #DCDCDC;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.profile-info {
+  text-transform: capitalize;
+  width: 100%;
+  color: #484848;
+  letter-spacing: 1px;
+}
+
+.profile-info label {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.profile-info__name {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+}
+
+.profile-info__name-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.profile-info__name-edit {
+  height: 100%;
+}
+
+.profile-info__email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  margin-top: 1rem;
+}
+
+.profile-info button {
+  position: relative;
+  padding: 0 .5rem;
+  right: 0;
+}
+
+.profile__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  margin-top: 2rem;
+}
+
+.profile__buttons button {
+  padding: .5rem 1rem;
+  width: 100%;
+}
+
+.profile__buttons form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.profile__buttons form input {
+  background: #484848;
+  color: white;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  padding: .5rem 1rem;
+  margin: .5rem;
+  margin: 1rem auto;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.profile__buttons form input::-webkit-file-upload-button {
+  background: #DCDCDC;
+  color: #484848;
+  margin-right: .5rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+}
+
+.profile__buttons form input:nth-of-type(1) {
+  margin-right: 1rem;
+}
+
+@media (hover: hover) {
+  .profile__buttons form input:hover {
+    color: white;
+    background: #808080;
+  }
+  .profile__buttons form input:hover::-webkit-file-upload-button {
+    color: #808080;
+  }
 }
 
 h1 {

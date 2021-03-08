@@ -1,13 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 require('dotenv').config();
 
-// setup express
+// setup 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const port = process.env.port || 5000;
 
@@ -26,11 +28,9 @@ mongoose.connect(
 );
 
 // set up routers
-const authRoutes = require('./routers/auth.js');
-const postRoutes = require('./routers/post.js');
+const routes = require('./routers/routes.js');
 
 // Route Middlewares
-app.use('/api/user', authRoutes); 
-app.use('/api/posts', postRoutes); 
+app.use('/api/auth', routes); 
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -18,6 +18,12 @@
         color: getColors(dark);
         letter-spacing: 2px;
         margin: 1.5rem;
+
+        .error{
+            text-decoration: none;
+            margin-bottom: .3rem;
+            color: red;
+        }
         h2{
             font-family: $sub;
             margin: 2rem 0;
@@ -63,7 +69,7 @@
                         color: getColors(active-light);
     
                         & ~ label{
-                            width: 30%;
+                            width: 50%;
                             height: 30%;
                             margin-bottom: 1rem;
                             color: getColors(active);

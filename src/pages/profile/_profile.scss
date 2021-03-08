@@ -1,0 +1,142 @@
+.profile{
+    @include setFlex(column, flex-start, center);
+    width: 100%;
+    background: getColors(primary);
+    min-height: 100vh;
+
+    .fa-spin{
+        font-size: 3rem;
+        margin: 2rem;
+    }
+    .buttons{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        outline: none;
+        border: none;
+        background: getColors(dark);
+        color: white;
+        font-weight: bold;
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: 150ms linear;   
+        @media(hover:hover){
+            &:hover{
+                color: white;
+                background: getColors(darker-light);
+
+                &::-webkit-file-upload-button {
+                    color: getColors(darker-light);
+                }
+            }
+        }
+    }
+
+    h2{
+        margin: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &-avatar{
+        position: relative;
+        max-width: 5rem;
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 10rem;
+        height: 5rem;
+        background: getColors(darker-light);
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &-wrapper{
+        position: relative;
+        background: getColors(secondary);
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    &-info{
+        text-transform: capitalize;
+        width: 100%;
+        color: getColors(dark);
+        letter-spacing: 1px;
+        label{
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        &__name{
+            display: grid;
+            grid-template-columns: 1fr auto;
+            &-label{
+                @include setFlex(column, flex-start, flex-start);
+            }
+            &-edit{
+                height: 100%
+            }
+        }
+        &__email{
+            @include setFlex(column, flex-start, flex-start);
+            margin-top: 1rem;
+        }
+        button{
+            position: relative;
+            padding: 0 .5rem;
+            right: 0;
+        }
+    }
+
+    &__buttons{
+        @include setFlex(column, flex-start, flex-start);
+
+        margin-top: 2rem;
+        button{
+            padding: .5rem 1rem;
+            width: 100%;
+        }
+
+        form{
+            @include setFlex(row, center, center);
+            input{
+                background: getColors(dark);
+                color: white;
+                border-radius: .5rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                border: none;
+                padding: .5rem 1rem;
+                margin: .5rem;
+                margin: 1rem auto;
+                transition: 150ms linear;
+                &::-webkit-file-upload-button {
+                    background: getColors(secondary);
+                    color: getColors(dark);
+                    margin-right: .5rem;
+                    font-weight: bolder;
+                    border: none;
+                    border-radius: 2rem;
+                    outline: none;
+                }
+                &:nth-of-type(1){
+                    margin-right: 1rem;
+                }
+
+                @media(hover:hover){
+                    &:hover{
+                        color: white;
+                        background: getColors(darker-light);
+        
+                        &::-webkit-file-upload-button {
+                            color: getColors(darker-light);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@import './profileResponsive';
