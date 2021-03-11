@@ -6,34 +6,36 @@ import {
     COULD_NOT_CONNECT
 } from "../../../constants/actionTypes";
 
-export const changePass = (history, input, setIsActive) => (changePassDispatch) => {
-  let token = localStorage.jwt_token;
-  let decoded = jwtTokenDecoder(token);
+export const changePass = (history, input, setIsActive) => async(changePassDispatch) => {
   
-  changePassDispatch({
-    type: CHANGE_PASS_LOADING,
-  }); // call dispatch to set loading to true
-
-  axiosInstance(history)
-    .put(`/auth/change-password/${decoded._id}`, input, {
-        headers: {
-            'jwt_token': localStorage.jwt_token
-        }
-    }).then((res) => {
+    try {
+        let token = localStorage.jwt_token;
+        let decoded = jwtTokenDecoder(token);
+    
+        changePassDispatch({
+            type: CHANGE_PASS_LOADING,
+        }); // call dispatch to set loading to true
+         
+        const axios = await axiosInstance(history).put(`/auth/change-password/${decoded._id}`, input, {
+            headers: {
+                'jwt_token': localStorage.jwt_token
+            }
+        })
         changePassDispatch({
             type: CHANGE_PASS_SUCCESS,
-            payload: res.data,
+            payload: axios.data,
         });
         setIsActive(false);
-        console.log(res.data)
+        // console.log(axios.data)
         history.push('/profile');
-    }).catch((err) => {
+
+    } catch (err) {
         changePassDispatch({
             type: CHANGE_PASS_ERROR,
             payload: err.response ? err.response.data : COULD_NOT_CONNECT,
         });
-      console.log(err.response.data)
-    });
+    //   console.log(err.response.data)
+    }
 };
 
 const jwtTokenDecoder = (token) => {
