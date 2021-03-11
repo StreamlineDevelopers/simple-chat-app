@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//helper
-const { upload } = require('../helper/fileHelper.js');
 //controller
 const userController = require('../controllers/UserController.js');
 
@@ -16,7 +14,6 @@ router.post('/login', userController.login);
 router.get('/user', verify, userController.find);
 router.put('/user/:id', verify, userController.update);
 router.put('/change-password/:id', verify, userController.changePassword);
-router.post('/upload', verify, upload.single('file'), userController.upload);
 
 // messages routes
 router.get('/messages', verify, userController.getMessages);

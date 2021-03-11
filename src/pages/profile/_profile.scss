@@ -1,8 +1,6 @@
 .profile{
     @include setFlex(column, flex-start, center);
-    width: 100%;
     background: getColors(primary);
-    min-height: 100vh;
     width: 100vw;
     .fa-spin{
         font-size: 3rem;
@@ -76,6 +74,7 @@
             grid-template-columns: 1fr auto;
             &-label{
                 @include setFlex(column, flex-start, flex-start);
+                margin-right: 2rem;
             }
             &-edit{
                 height: 100%
@@ -84,6 +83,9 @@
         &__email{
             @include setFlex(column, flex-start, flex-start);
             margin-top: 1rem;
+            span{
+                text-transform: initial;
+            }
         }
         button{
             position: relative;

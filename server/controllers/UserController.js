@@ -1,6 +1,5 @@
 //model 
 const { User } = require('../models/User.js');
-const { Avatar } = require('../models/Avatar.js');
 const { Message } = require('../models/Message.js');
 
 //packages
@@ -164,59 +163,6 @@ exports.changePassword = async(req,res) => {
 
     res.send(value)
 }
-//#endregion
-
-//#region UPLOAD FILE NOT YET DONE
-exports.upload = async(req,res) => {
-    try {
-
-        const createAvatar = new Avatar({
-            fileName: req.file.originalname,
-            filePath: req.file.path,
-            fileType: req.file.mimetype,
-            fileSize: fileSizeFormatter(req.file.size, 2),
-            fileUid: req.file.uid
-        }) 
-
-        let savedAvatar = await createAvatar.save();
-        res.send(savedAvatar);
-
-    } catch (error) {
-        return res.status(400).send(error.message);
-    }
-}
-
-// exports.updateAvatar = async(req,res) => {
-//     try {
-//         const avatar = {
-//                 fileName: req.file.originalname,
-//                 filePath: req.file.path,
-//                 fileType: req.file.mimetype,
-//                 fileSize: fileSizeFormatter(req.file.size, 2),
-//                 uid: req.body.uid
-//             }
-    
-//             let id = req.body.uid;
-    
-//             await Avatar.findOneAndUpdate(id, avatar, {new: true, upsert: true, useFindAndModify: false}, 
-//                 (error, data) => { error ? res.send(error) : res.status(200).send(data); }    
-//             );
-
-//     } catch (error) {
-//         return res.status(400).send(error.message);
-//     }
-// }
-
-const fileSizeFormatter = (bytes, decimal) => {
-    if(bytes === 0) {
-        return '0 bytes';
-    }
-    const dm = decimal || 2;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'YB', 'ZB'];
-    const index = Math.floor(Math.log(bytes) / Math.log(1000));
-    
-    return parseFloat((bytes / Math.pow(1000, index)).toFixed(dm)) + ' ' + sizes[index];
-} // format the file size of the image to kb
 //#endregion
 
 //#region MESSAGE

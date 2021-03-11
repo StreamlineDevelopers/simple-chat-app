@@ -3,6 +3,8 @@
     letter-spacing: 1px;
     height: 75vh;
     width: 70vw;
+    margin-top: 2rem;
+
     &-container{
         @include setFlex(row, center, center);
         width: 100%;
@@ -13,6 +15,8 @@
     }
     &-wrapper{
         @include setFlex(column, center, center);
+        padding-top: 1rem;
+        background: getColors(secondary);
         order: 2;
         height: 100%;
         width: 100%;
@@ -20,7 +24,7 @@
     &__body{
         @include setFlex(column, flex-start, center);
         
-        background: #DCDCDC;
+        background: getColors(secondary);
         overflow-y: auto;
         height: 100%;
         width: 100%;
@@ -53,6 +57,7 @@
         &-status{
             @include setFlex(column, flex-start, center);
             color: getColors(secondary-light);
+            text-transform: capitalize;
         }
     }
     &__message{

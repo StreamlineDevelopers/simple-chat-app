@@ -7,8 +7,6 @@ import ChangePassModal from '../../components/modal/changePass/ChangePassContain
 const Profile = (props) => {
     let editClickHandler = props.editClickHandler;
     let changePassClickHandler = props.changePassClickHandler;
-    let fileOnChangeHandler = props.fileOnChangeHandler;
-    let fileOnSubmitHandler = props.fileOnSubmitHandler;
 
     let data = props.data;
     let isLoading = props.isLoading;
@@ -25,7 +23,6 @@ const Profile = (props) => {
         <div className='profile'>
             <h1>hellochat</h1>
             <div className="profile-wrapper normal-2">
-                <div className="profile-avatar"><img className="profile-avatar-img" src="" alt="A"/></div>
                     {isLoading ? ( <i className="fa fa-circle-o-notch fa-spin"></i>):(  
                         <div className="profile-info">
                             <div className="profile-info__name">
@@ -48,11 +45,6 @@ const Profile = (props) => {
                     )}
                 <div className="profile__buttons">
                     <button onClick={e => changePassClickHandler(e)} className="buttons profile-btn-password normal-2">Change Password</button>
-                    <form onSubmit={e => {fileOnSubmitHandler(e)}}>
-                        <input onChange={e => {fileOnChangeHandler(e)}} type="file" id="myfile" name="myfile"/>
-                        <input type="submit" value="upload"/>
-                    </form>
-                    
                 </div>
             </div>
             <EditProfileModal

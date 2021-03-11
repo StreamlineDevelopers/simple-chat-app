@@ -5,18 +5,15 @@ import Profile from './Profile.js';
 // context api actions
 import AuthContext from '../../context/AuthContext.js';
 import { getUserInfo } from '../../context/actions/users/getUserInfo.js';
-import { uploadFile } from '../../context/actions/users/uploadFile.js';
 
 const ProfileContainer = () => {
     // use states
     const [editIsActive, editSetIsActive] = useState(false);
     const [changePassIsActive, changePassSetIsActive] = useState(false);
     const [updatedData, setUpdatedData] = useState(null);
-    const [file, setFile] = useState();
 
     //context api reducers
     const {userState:{ user:{data, isLoading} }, userDispatch}  = useContext(AuthContext);
-    const {uploadFileState:{ uploadFile:{fileData, isFileError, isFileLoading} }, uploadFileDispatch}  = useContext(AuthContext);
 
     const history = useHistory();
 
@@ -34,30 +31,6 @@ const ProfileContainer = () => {
         changePassSetIsActive(true);
     }
 
-    const fileOnChangeHandler = (e) => {
-        e.preventDefault();
-        let targetFile = e.target.files[0];
-
-        // add a new parameter current user id
-        targetFile.fileUid = data?._id;
-
-        setFile(targetFile);
-        
-        console.log('fileOnChangeHandler',targetFile)
-        console.log('AuthAction', fileData)
-    }
-
-    const fileOnSubmitHandler = (e) => {
-        e.preventDefault();
-
-        setFile(file);
-
-        let formData = new FormData();
-        formData.append('file', file);
-        uploadFile(history, formData)(uploadFileDispatch);
-    
-    }
-
     useEffect(() => {
         //call once when refreshed so that there will be data again // also to call axios interceptor
         getUserInfo(history)(userDispatch);
@@ -67,8 +40,6 @@ const ProfileContainer = () => {
         <Profile
             editClickHandler = {editClickHandler}
             changePassClickHandler = {changePassClickHandler}
-            fileOnChangeHandler = {fileOnChangeHandler}
-            fileOnSubmitHandler = {fileOnSubmitHandler}
 
             data = {data}
             isLoading = {isLoading}
