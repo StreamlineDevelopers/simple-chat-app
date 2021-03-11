@@ -12,7 +12,10 @@ const query = {
     chatRoomBody: () => document.querySelector('.chat-room__body'),
     chatRoomBodyStatus: () => document.querySelector('.chat-room__body-status'),
     sendButton: () =>  document.querySelector('.message-area-send'),
-    textAreaSend: () =>  document.querySelector('.message-text-area')
+    textAreaSend: () =>  document.querySelector('.message-text-area'),
+
+    //emojipicker
+    emojiPickerReact:() => document.querySelector('.emoji-picker-react')
 }
 
 export default query;

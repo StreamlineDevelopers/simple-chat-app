@@ -11,7 +11,6 @@ import ChatRoom from './ChatRoom.js';
 
 // context api
 import AuthContext from '../../context/AuthContext.js';
-// import { updateUserInfo } from '../../context/actions/users/updateUserInfo.js';
 
 let socket;
 
@@ -21,7 +20,7 @@ const ChatRoomContainer = () => {
     const [joinedUsers, setJoinedUsers] = useState([]);
     const [isMessageLoading, setIsMessageLoading] = useState(true);
 
-    const {updateUserState:{ updateUser:{result} }, updateUserDispatch}  = useContext(AuthContext);
+    const {updateUserState:{ updateUser:{result} }}  = useContext(AuthContext);
 
     const history = useHistory();
     
@@ -73,7 +72,7 @@ const ChatRoomContainer = () => {
         if(user) socket.emit('join', { _uid: user._id, firstName: user.firstName, lastName: user.lastName , email: user.email });
 
         socket.on("connect_error", ({message}) => {
-            console.log(`connect_error due to ${message}`);
+            // console.log(`connect_error due to ${message}`);
         });
         return(() => {
             socket.disconnect();
@@ -111,7 +110,7 @@ const ChatRoomContainer = () => {
             let content = data.user;
 
             setJoinedUsers(content);
-            console.log(content)
+            // console.log(content)
         })
     }, [joinedUsers])
 

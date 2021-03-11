@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserDetails = ({ data }) => {
-    console.log(data)
     return(
         <div className="user-details-modal">
             <div className="user-details-modal__wrapper">

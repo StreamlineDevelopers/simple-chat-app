@@ -2,11 +2,26 @@
     position: relative;
     background: getColors(secondary);
     height: 100%;
-    
+    .emoji-picker-react{
+        position: absolute;
+        bottom: 100%;
+        width: 10rem;
+        opacity: 0;
+        position: absolute;
+        transition: 150ms linear;
+
+        &.active{
+            opacity: 1;
+        }
+    }
+
     &-wrapper{
         @include setFlex(row, center, center);
         padding: .6rem 2rem;
         height: 100%;
+        .fa-smile-wink{
+            font-size: 2rem;
+        }
         textarea {
             width: 100%;
             padding: .5rem;

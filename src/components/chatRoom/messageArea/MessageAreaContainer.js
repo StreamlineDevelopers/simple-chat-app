@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-
 import query from '../../../helper/query.js';
 import MessageArea from './MessageArea.js';
 
 let SERVER = 'http://localhost:5000';
 
 const MessageAreaContainer = () => {
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState([]);
 
     const sendClickHandler = (e) => {
         e.preventDefault();
         let statusContainer = query.chatRoomBodyStatus();
         let storedUser = localStorage.tempUserData;
         let { _id, firstName } = JSON.parse(storedUser);
+        let msg = message.join(' ');
 
         sendMessage({
             uid: _id,
             firstName,
-            message,
+            message: msg,
             dateCreated: moment()
         });
-
+       
         setMessage('');
+        // console.log(message)
         // reset status on send
         statusContainer.innerHTML = '';
+        console.log(msg)
     }
 
     const textAreaChangeHandler = (e) => {
         e.preventDefault();
-        setMessage(e.target.value);
+
+        setMessage([e.target.value]);
     }
 
     const sendMessage = (message) => {
@@ -41,12 +44,22 @@ const MessageAreaContainer = () => {
         })
     }
 
+    const onEmojiClick = (event, emojiObject) => {
+        setMessage([...message, emojiObject.emoji])
+      };
+
+    const pickerActiveClickHandler = (e) =>{
+        e.preventDefault();
+        query.emojiPickerReact().classList.toggle('active');
+    }
     return (
         <MessageArea
             sendClickHandler = {sendClickHandler}
             textAreaChangeHandler = {textAreaChangeHandler}
             message = {message}
             sendMessage = {sendMessage}
+            onEmojiClick = {onEmojiClick}
+            pickerActiveClickHandler = {pickerActiveClickHandler}
         />
     )
 }

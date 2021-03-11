@@ -205,6 +205,20 @@ ul {
   height: 100%;
 }
 
+.message-area .emoji-picker-react {
+  position: absolute;
+  bottom: 100%;
+  width: 10rem;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+.message-area .emoji-picker-react.active {
+  opacity: 1;
+}
+
 .message-area-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -223,6 +237,10 @@ ul {
       align-content: center;
   padding: .6rem 2rem;
   height: 100%;
+}
+
+.message-area-wrapper .fa-smile-wink {
+  font-size: 2rem;
 }
 
 .message-area-wrapper textarea {
