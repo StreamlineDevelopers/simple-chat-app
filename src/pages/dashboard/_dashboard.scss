@@ -4,7 +4,10 @@
     background: getColors(primary);
     min-height: 100vh;
     padding: 0 2rem;
-
+    width: 100vw;
+    .fa-spin{
+        font-size: 3rem;
+    }
     &__logout{
         text-transform: uppercase;
         letter-spacing: 2px;

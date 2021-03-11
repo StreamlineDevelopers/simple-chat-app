@@ -23,7 +23,7 @@ const Profile = (props) => {
 
     return (
         <div className='profile'>
-            <h2>hellochat</h2>
+            <h1>hellochat</h1>
             <div className="profile-wrapper normal-2">
                 <div className="profile-avatar"><img className="profile-avatar-img" src="" alt="A"/></div>
                     {isLoading ? ( <i className="fa fa-circle-o-notch fa-spin"></i>):(  

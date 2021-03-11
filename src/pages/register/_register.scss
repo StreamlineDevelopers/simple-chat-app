@@ -4,7 +4,10 @@
     width: 100vw;
     height: 100vh;
     background: getColors(primary);
-
+    .fa-spin{
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
     &-card{
         @include setFlex(column, center, center);
 

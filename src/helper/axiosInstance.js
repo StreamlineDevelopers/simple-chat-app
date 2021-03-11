@@ -24,7 +24,7 @@ export default (history = null) => {
         return new Promise((resolve, reject) => {
           reject(error);
         });
-      }
+      } // if error not on server
 
       if (error.response.status === 401 || error.response.status === 500 ) {
         localStorage.removeItem('jwt_token');
@@ -36,9 +36,9 @@ export default (history = null) => {
         return new Promise((resolve, reject) => {
           reject(error);
         });
-      }
+      } // if response is forbidden 
     }
-  ); // this runs if the token is being edited manually
+  ); // this runs if the token is being edited manually // if there is error then it goes to base path
 
  return axiosInstance;
 };

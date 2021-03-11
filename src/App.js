@@ -6,6 +6,7 @@ import LoginContainer from './pages/login/LoginContainer.js';
 import RegisterContainer from './pages/register/RegisterContainer.js';
 import DashboardContainer from './pages/dashboard/DashboardContainer.js';
 import ProfileContainer from './pages/profile/ProfileContainer.js';
+import ChatRoomContainer from './pages/chatRoom/ChatRoomContainer.js';
 import Navbar from './components/navbar/NavbarContainer.js';
 
 // context api
@@ -20,15 +21,21 @@ const RenderRoute = () => {
   if(pathname==='/dashboard' && !isAuthenticated) {
     history.push('/');
   }
+  if(pathname==='/profile' && !isAuthenticated) {
+    history.push('/');
+  }
+  if(pathname==='/dashboard/chatroom' && !isAuthenticated) {
+    history.push('/');
+  }
 
   return (
-    <>
+    <div className="body">
       <Route exact path='/' component={LoginContainer}/>
-      <Route path='/register' component={RegisterContainer}/>
-      <Route path='/dashboard' component={DashboardContainer}/>
-      <Route path='/profile' component={ProfileContainer}/>
-      <Route path='/chatroom' component={ProfileContainer}/>
-    </>
+      <Route exact path='/register' component={RegisterContainer}/>
+      <Route exact path='/dashboard' component={DashboardContainer}/>
+      <Route exact path='/profile' component={ProfileContainer}/>
+      <Route exact path='/dashboard/chatroom' component={ChatRoomContainer}/>
+    </div>
   );
 };
 

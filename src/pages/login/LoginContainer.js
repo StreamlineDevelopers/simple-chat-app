@@ -33,6 +33,8 @@ const LoginContainer = () => {
         if(user){
             user.user = null;
         } 
+
+        // console.log(user)
         //set user back to null on every fresh page so that the user can go and register again.
         //since the register page auto redirect the page to login page if user is not null.
     }, [])

@@ -1,0 +1,51 @@
+.user-details-modal{
+    @include setFlex(row, center, center);
+    position: fixed;
+    background: #0e0e0e78;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 150ms linear;
+
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &__wrapper{
+        @include setFlex(column, center, center);
+        position: relative;
+        width: 60vmin;
+        height: auto;
+        background: getColors(secondary);;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-top: 1rem;
+        h2{
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        &-info{
+            text-align: center;
+            letter-spacing: 2px;
+            div{
+                @include setFlex(column, center, flex-start);
+                border-bottom: 2px solid;
+                border-color: getColors(darker-light);
+                padding-bottom: .5rem;
+                margin-bottom: 1rem;
+                label{
+                    color: getColors(secondary-light)
+                }
+                span{
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+@import './userDetailsResponsive';

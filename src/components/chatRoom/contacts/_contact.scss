@@ -1,0 +1,49 @@
+.contacts{
+    position: relative;
+    border-right: 2px solid;
+    border-color: getColors(primary);
+    padding: .5rem;
+    height: 100%;
+    background: getColors(secondary);
+    color: getColors(dark);
+    cursor: pointer;
+
+    &-online{
+        &-title{
+            display: inline-block;
+            border-bottom: 2px solid;
+            border-color: getColors(darker-light);
+            text-align: center;
+            margin-bottom: .7rem;
+            font-weight: bold;
+            width: 100%;
+        }
+        ul{
+            margin-top: .2rem;
+            text-align: center;
+            text-transform: capitalize;
+            .fa-spin{
+                margin: 0 auto;
+                text-align: center;
+            }
+            li{
+                @include setFlex(row, flex-start, center);
+                line-height: 1.2rem;
+                margin-bottom: .7rem;
+                .fa-circle{
+                    color: getColors(online)
+                }
+
+                span{
+                    transition: 200ms linear;
+                    @media(hover:hover){
+                        &:hover{
+                            color: getColors(darker-light); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@import 'contactResponsive';

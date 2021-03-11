@@ -1,13 +1,24 @@
 //model 
 const { User } = require('../models/User.js');
 const { Avatar } = require('../models/Avatar.js');
+const { Message } = require('../models/Message.js');
 
 //packages
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+//exported socket from server
+const socket = require('../server.js');
+
 // validation
 const {registerValidation, loginValidation, changePassValidation} = require('../validation.js');
+
+//#region initial
+exports.initial = (req,res) => {
+    // do validation and destructure error and value
+  res.send('server is running');
+}
+//#endregion
 
 //#region REGISTER
 exports.register = async(req,res) => {
@@ -102,16 +113,22 @@ exports.find = async(req,res) => {
 
 //#region UPDATE INFO
 exports.update = async(req,res) => {
+    try {
+        if(!req.body) return res.status(400).send('No data to update');
 
-    if(!req.body) return res.status(400).send('No data to update');
+        // get the id of the url param parameter in routes
+        let id = req.params.id;
 
-    // get the id of the url param parameter in routes
-    let id = req.params.id;
+        let findUserAndUpdate = await User.findOneAndUpdate({_id: id}, req.body, {new: true, useFindAndModify: false});
+        if(!findUserAndUpdate) return res.status(400).send(`Unable to update user with ${id}`);
 
-    let findUserAndUpdate = await User.findOneAndUpdate(id, req.body, {new: true, useFindAndModify: false});
-    if(!findUserAndUpdate) return res.status(400).send(`Unable to update user with ${id}`);
+        res.send(findUserAndUpdate);
+        // console.log(findUserAndUpdate)
+    } catch (error) {
+        res.status(400).send(error);
+        // console.log('ERROR UPDATE', error)
+    }
     
-    res.send(findUserAndUpdate);
 }
 //#endregion
 
@@ -200,4 +217,25 @@ const fileSizeFormatter = (bytes, decimal) => {
     
     return parseFloat((bytes / Math.pow(1000, index)).toFixed(dm)) + ' ' + sizes[index];
 } // format the file size of the image to kb
+//#endregion
+
+//#region MESSAGE
+exports.getMessages = async(req,res) => {
+    await Message.find({},(err, messages)=> {
+        res.send(messages);
+    })
+}
+exports.postMessages = async(req,res) => {
+    let message = new Message(req.body);
+
+    await message.save((err) =>{
+        if(err) sendStatus(500);
+
+        // this is being used on chatRoomContainer to track
+        // if new post is added from messageAreaContainer
+        socket.io.emit('message', req.body);
+
+        res.sendStatus(200);
+    })
+}
 //#endregion

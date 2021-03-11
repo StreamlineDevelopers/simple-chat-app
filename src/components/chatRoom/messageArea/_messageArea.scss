@@ -1,0 +1,41 @@
+.message-area{
+    position: relative;
+    background: getColors(secondary);
+    height: 100%;
+    
+    &-wrapper{
+        @include setFlex(row, center, center);
+        padding: .6rem 2rem;
+        height: 100%;
+        textarea {
+            width: 100%;
+            padding: .5rem;
+            height: auto;
+            outline: none;
+            border: none;
+            flex-grow: 1;
+        }
+        button{
+            height: 100%;
+            padding: 0 1rem;
+            border: none;
+            background: #484848;
+            color: #EEEEEE;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            outline: none;
+            transition: 150ms linear;
+            @media(hover:hover){
+                &:hover:not(:disabled){
+                    color: getColors(secondary-light);
+                }
+            }
+
+            &:disabled{
+                background: getColors(darker-light)
+            }
+        }
+    }
+}
+@import './messageAreaResponsive';

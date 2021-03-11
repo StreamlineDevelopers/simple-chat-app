@@ -5,19 +5,21 @@
 
 // components
 @import '../components/navbar/navbar';
+@import '../components/chatRoom/contacts/contact';
+@import '../components/chatRoom/messageArea/messageArea';
+@import '../components/chatRoom/messageHolder/messageHolder';
 
 // component modal
-@import '../components/modal/createRoom/createRoom';
-@import '../components/modal/joinRoom/joinRoom';
 @import '../components/modal/editProfile/editProfile';
 @import '../components/modal/changePass/changePass';
-
+@import '../components/modal/userDetails/userDetails';
 
 // pages
 @import '../pages/login/login';
 @import '../pages/register/register';
 @import '../pages/dashboard/dashboard';
 @import '../pages/profile/profile';
+@import '../pages/chatRoom/chatRoom';
 
 // responsive
 @import 'global-responsive';

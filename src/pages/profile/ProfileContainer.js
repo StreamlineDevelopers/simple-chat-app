@@ -59,11 +59,9 @@ const ProfileContainer = () => {
     }
 
     useEffect(() => {
+        //call once when refreshed so that there will be data again // also to call axios interceptor
         getUserInfo(history)(userDispatch);
-
-        console.log('FILE',file)
-        console.log('FILEDATA', fileData)
-    }, [editIsActive]) //call once when refreshed so that there will be data again
+    }, [editIsActive]) 
 
     return (
         <Profile

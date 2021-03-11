@@ -22,6 +22,10 @@ const userSchema = mongoose.Schema({
         min: 6,
         required: true
     },
+    isActive: {
+        type: Boolean,
+        default: false
+    },
     dateCreated: {
         type: Date,
         default: Date.now

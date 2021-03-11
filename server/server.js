@@ -1,17 +1,29 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const app = express();
 const cors = require('cors');
 const path = require('path');
+const mongoose = require('mongoose');
+
+//joined users controller
+const { addUser, removeUser, getUser, getAllUser} = require('./controllers/UserJoinedController.js');
+
+// socket io // created a helper for socket io that return its current values.
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  }
+});
 
 require('dotenv').config();
 
 // setup 
-const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-const port = process.env.port || 5000;
+const PORT = process.env.port || 5000;
 
 // setup mongoose //connection to mongoDB
 mongoose.connect(
@@ -27,10 +39,36 @@ mongoose.connect(
   }
 );
 
+io.on('connect', (socket) => {
+ 
+  socket.on('join', ({  _uid, firstName, lastName, email }) => {
+    
+    const { error, user } = addUser({ _socketId: socket.id, _uid , firstName, lastName, email, isJoined:true });
+
+    if(error) return console.log(error);
+
+    socket.emit('welcome', { user: 'admin', content: `Welcome to the chat ${user.firstName}!` });
+    socket.broadcast.emit('anouncement', { user: 'admin', content: `${user.firstName} has joined the chat.` });
+    io.emit('onlineUsers',  {user: getAllUser(true)});
+  })
+
+  socket.on('disconnect', () => {
+
+    const user = removeUser(socket.id);
+    
+    if(user) {
+      io.emit('anouncement', { user: 'admin', content: `${user.firstName} has left the chat.` });
+      io.emit('onlineUsers', {user: getAllUser(true)});
+    }
+
+  });
+});
+
 // set up routers
 const routes = require('./routers/routes.js');
 
 // Route Middlewares
 app.use('/api/auth', routes); 
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+exports.io = io;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`))

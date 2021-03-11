@@ -6,35 +6,44 @@ import {
     COULD_NOT_CONNECT
 } from "../../../constants/actionTypes";
 
-export const updateUserInfo = (history, input, setIsActive) => (updateUserDispatch) => {
-  let token = localStorage.jwt_token;
-  let decoded = jwtTokenDecoder(token);
-  
-  updateUserDispatch({
-    type: UPDATE_USER_LOADING,
-  }); // call dispatch to set loading to true
+export const updateUserInfo = (history, input, reqData, isDecode, linkto=null, type, setIsActive) => async(updateUserDispatch) => {
+  try {
+    let decoded;
 
-  axiosInstance(history)
-    .put(`/auth/user/${decoded._id}`, input, {
-        headers: {
-            'jwt_token': localStorage.jwt_token
-        }
-    }).then((res) => {
+    if(isDecode){
+      decoded = jwtTokenDecoder(reqData);
+    }else{
+      decoded = reqData;
+    }
+
+    // console.log('THIS IS SET ID', decoded)
+
+    updateUserDispatch({
+        type: UPDATE_USER_LOADING,
+    }); // call dispatch to set loading to true
+
+    const axios = await axiosInstance(history).put(`/auth/user/${decoded._id}`, input, {
+            headers: {
+                'jwt_token': localStorage.jwt_token
+            }
+        })
         updateUserDispatch({
             type: UPDATE_USER_SUCCESS,
-            payload: res?.data,
+            payload: axios.data,
         });
-        setIsActive(false);
-        console.log(res.data)
-        history.push('/profile');
-    }).catch((err) => {
-        updateUserDispatch({
-            type: UPDATE_USER_ERROR,
-            payload: err.response ? err.response.data : COULD_NOT_CONNECT,
-        });
-      console.log(err?.response?.data)
+
+        // console.log('UPDATED USER',axios.data);
+        if(type === 'modal')  setIsActive(false);
+        history.push(linkto);
+        decoded = null;
+  }catch (err) {
+    updateUserDispatch({
+        type: UPDATE_USER_ERROR,
+        payload: err.response ? err.response.data : COULD_NOT_CONNECT,
     });
-};
+    // console.log('UPDATED USER',err);
+  }
+}; // set type parameter to 'modal' if the target is a modal container else just leave it an empty string.
 
 const jwtTokenDecoder = (token) => {
   var base64Url = token.split('.')[1];

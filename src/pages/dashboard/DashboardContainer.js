@@ -1,64 +1,47 @@
-import React, { useContext, useEffect, useState } from 'react';
-import  { Redirect, useHistory } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react';
+import  { useHistory } from 'react-router-dom';
 import Dashboard from './Dashboard.js'
 
 // context api
 import AuthContext from '../../context/AuthContext.js';
-import { logoutAction } from '../../context/actions/auth/logoutAction.js';
 import { getUserInfo } from '../../context/actions/users/getUserInfo.js';
+import { updateUserInfo } from '../../context/actions/users/updateUserInfo.js';
 
 const DashboardContainer = () => {
-    const [joinIsActive, joinSetIsActive] = useState(false);
-    const [createIsActive, createSetIsActive] = useState(false);
-    const [clicked, setClicked] = useState(false);
-    const [redirect, setRedirect] = useState('');
-
-    const {authState:{ auth: { user} }, authDispatch} = useContext(AuthContext);
-    const {userState:{ user:{ data } }, userDispatch}  = useContext(AuthContext);
+    const {userState:{ user }, userDispatch}  = useContext(AuthContext);
+    const {updateUserState:{ updateUser }, updateUserDispatch}  = useContext(AuthContext);
 
     const history = useHistory();
 
     const joinClickHandler = (e) => {
         e.preventDefault();
-        joinSetIsActive(true);
+
+        let input = { isActive: true };
+        let reqData = localStorage.jwt_token;
+        let isDecode = true;
+        let type = null;
+        let path = '/dashboard/chatroom';
+
+        updateUserInfo(history, input, reqData, isDecode, path, type)(updateUserDispatch);
     }
 
-    const createClickHandler = (e) => {
-        e.preventDefault();
-        createSetIsActive(true);
-    }
-    
-    const logoutClickHandler = (e) => {
-        e.preventDefault();
-        logoutAction()(authDispatch);
-        setClicked(true);
-    }
     const profileClickHandler = (e) => {
         e.preventDefault();
-        getUserInfo(history)(userDispatch)
+        getUserInfo(history,'/profile')(userDispatch);
     }
 
     useEffect(() => {
-        if(clicked){
-            setRedirect('/');
-            setClicked(false);
-        }
+        //call once when refreshed so that there will be data again // also to call axios interceptor
+        getUserInfo(history)(userDispatch);
+    }, []) 
 
-    }, [clicked])
 
-    if(!localStorage.jwt_token) return <Redirect to={redirect}/>
     return(
         <Dashboard
             joinClickHandler = {joinClickHandler}
-            createClickHandler = {createClickHandler}
-            logoutClickHandler = {logoutClickHandler}
             profileClickHandler ={profileClickHandler}
-
-            joinIsActive = {joinIsActive}
-            joinSetIsActive = {joinSetIsActive}
-            createIsActive = {createIsActive}
-            createSetIsActive = {createSetIsActive}
-            user = {user}
+            isUpdateLoading = {updateUser.isLoading}
+            isUserLoading = {user.isLoading}
         />
     )
 }

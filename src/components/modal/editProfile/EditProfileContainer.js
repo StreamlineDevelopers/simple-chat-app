@@ -1,4 +1,5 @@
 import React, { createRef, useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import EditProfile from './EditProfile.js';
 
 //utils
@@ -7,7 +8,6 @@ import Query from '../../../helper/query.js';
 // context api
 import AuthContext from '../../../context/AuthContext.js'
 import { updateUserInfo } from '../../../context/actions/users/updateUserInfo.js';
-import { useHistory } from 'react-router';
 
 const EditProfileContainer = ({ isActive, setIsActive, updatedData, setUpdatedData }) => {
     const [formInput, setFormInput] = useState({
@@ -16,8 +16,9 @@ const EditProfileContainer = ({ isActive, setIsActive, updatedData, setUpdatedDa
         email: updatedData?.email
     });
     const [isSubmit, setIsSubmit]= useState(false);
-
+    
     const {updateUserState:{ updateUser:{result, isLoading, error} }, updateUserDispatch}  = useContext(AuthContext);
+
     const history = useHistory();
 
     const refs = {
@@ -69,11 +70,17 @@ const EditProfileContainer = ({ isActive, setIsActive, updatedData, setUpdatedDa
         }
 
         if(isSubmit){
-            updateUserInfo(history, formInput, setIsActive)(updateUserDispatch);
+            let input = formInput;
+            let reqData = localStorage.jwt_token;
+            let isDecode = true;
+            let path = '/profile';
+            let type = 'modal';
+            
+            updateUserInfo(history, input, reqData, isDecode, path, type, setIsActive)(updateUserDispatch);
             setIsSubmit(false);
             setUpdatedData(formInput);
+            console.log(formInput)
         }
-        console.log(formInput);
     }, [isSubmit])
 
     return(

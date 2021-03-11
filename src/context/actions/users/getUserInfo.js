@@ -6,33 +6,37 @@ import {
   COULD_NOT_CONNECT
 } from "../../../constants/actionTypes";
 
-export const getUserInfo = (history) => (userDispatch) => {
-  let token = localStorage.jwt_token;
-  let decoded = jwtTokenDecoder(token);
+export const getUserInfo = (history, linkto=null) => async(userDispatch) => {
+  try {
+    let token = localStorage.jwt_token;
+    let decoded = jwtTokenDecoder(token);
   
-  userDispatch({
-    type: USER_LOADING,
-  }); // call dispatch to set loading to true
+    // console.log('DECODED USER TOKEN FROM USER',decoded)
+    userDispatch({
+      type: USER_LOADING,
+    }); // call dispatch to set loading to true
 
-  axiosInstance(history)
-    .get(`/auth/user/?id=${decoded._id}`, {
+    const axios = await axiosInstance(history).get(`/auth/user/?id=${decoded._id}`, {
       headers: {
         'jwt_token': localStorage.jwt_token
       }
-    }).then((res) => {
-      userDispatch({
-        type: USER_FOUND,
-        payload: res?.data,
-      });
-      // console.log(res.data)
-      history.push('/profile');
-    }).catch((err) => {
-      userDispatch({
-        type: USER_NOT_FOUND,
-        payload: err.response ? err.response.data : COULD_NOT_CONNECT,
-      });
-      // console.log(err?.response?.data)
+    })
+    // console.log(axios);
+    userDispatch({
+      type: USER_FOUND,
+      payload: axios.data,
     });
+
+    // console.log('GET USER INFO',axios.data)
+    history.push(linkto);
+
+  }catch (err) {
+    userDispatch({
+      type: USER_NOT_FOUND,
+      payload: err.response ? err.response.data : COULD_NOT_CONNECT,
+    });
+    // console.log('GET USER INFO ERROR',err.response)
+  }
 };
 
 const jwtTokenDecoder = (token) => {

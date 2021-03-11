@@ -1,25 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-// modal compoenents
-import JoinRoomModal from '../../components/modal/joinRoom/JoinRoomContainer.js';
-
-const nav = (pathname, roomClickHandler, contactClickHandler) => {
+const nav = (pathname, logoutClickHandler) => {
     if(pathname !== '/'){
         return(
             <div className="navbar__items--in">
-                <li className="normal-2 navbar__items--in" onClick={e => roomClickHandler(e)}>rooms</li>
-                <li className="normal-2 navbar__items--in less" onClick={e => contactClickHandler(e)}>contacts</li>
+                { pathname === '/profile' && <Link to='/Dashboard'><li className="normal-2 navbar__items--in" >Home</li></Link>}
+                { pathname === '/dashboard/chatroom' && <Link to='/Dashboard'><li className="normal-2 navbar__items--in" >Home</li></Link>}
+                <li className="normal-2 navbar__items--in less" onClick={e => logoutClickHandler(e)}>Logout</li>
             </div>
         )
     }
 }
 
 const Navbar = (props) => {
-    let roomClickHandler = props.roomClickHandler;
-    let contactClickHandler = props.contactClickHandler;
-    let joinIsActive = props.joinIsActive;
-    let joinSetIsActive = props.joinSetIsActive;
+    let logoutClickHandler = props.logoutClickHandler;
     let pathname = props.pathname;
     
     return(
@@ -27,14 +22,9 @@ const Navbar = (props) => {
             <div className="navbar-wrapper">
                 <Link to='/dashboard'><h2>hellochat</h2></Link>
                 <ul className="navbar__items">
-                    {nav(pathname, roomClickHandler, contactClickHandler)}
+                    {nav(pathname, logoutClickHandler)}
                 </ul>
             </div>
-
-            <JoinRoomModal
-                isActive = {joinIsActive}
-                setIsActive = {joinSetIsActive}
-            /> 
         </nav>
     )
 }
