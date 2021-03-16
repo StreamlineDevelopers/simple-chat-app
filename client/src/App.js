@@ -42,7 +42,7 @@ const RenderRoute = () => {
 const App = () =>  {
   return (
     <AppState>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Navbar/>
             <Switch>
