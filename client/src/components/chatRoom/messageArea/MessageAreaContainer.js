@@ -4,7 +4,7 @@ import moment from 'moment';
 import query from '../../../helper/query.js';
 import MessageArea from './MessageArea.js';
 
-let SERVER = 'http://localhost:5000';
+let SERVER = 'https://simple-chat-app-mad-server.herokuapp.com';
 
 const MessageAreaContainer = () => {
     const [message, setMessage] = useState([]);

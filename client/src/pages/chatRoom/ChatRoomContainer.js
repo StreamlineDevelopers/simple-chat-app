@@ -24,7 +24,7 @@ const ChatRoomContainer = () => {
 
     const history = useHistory();
     
-    let SERVER = 'http://localhost:5000';
+    let SERVER = 'https://simple-chat-app-mad-server.herokuapp.com';
     let KEY = 'tempUserData';
 
     //store user info to use later then remove when path is changed or disconnected

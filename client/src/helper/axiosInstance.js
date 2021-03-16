@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default (history = null) => {
-  const baseURL = `http://localhost:5000/api`;
+  const baseURL = `https://simple-chat-app-mad-server.herokuapp.com/api`;
 
   let headers = {};
 
