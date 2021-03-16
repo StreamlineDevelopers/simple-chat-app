@@ -40,7 +40,6 @@ const RegisterContainer = () => {
             inputChangeHandler = {inputChangeHandler}
             loading = {loading}
             error = {error}
-            user = {user}
         />
     )
 }

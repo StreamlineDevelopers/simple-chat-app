@@ -1,11 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+//svg
+import {ReactComponent as Girl} from '../../assets/svg/girl.svg';
+
 const Login = ({ formClickhandler, inputChangeHandler, error, loading }) => {
   
     return(
         <div className="login">
           <div className="login-card">
+            <Girl/>
             <h2>hellochat</h2>
             <form onSubmit={e => formClickhandler(e)} >
                 <div> 

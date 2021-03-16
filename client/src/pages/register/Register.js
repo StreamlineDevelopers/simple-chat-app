@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Register = ({ formClickhandler, inputChangeHandler, error, loading, user }) => {
+const Register = ({ formClickhandler, inputChangeHandler, error, loading }) => {
     
     return(
         <div className="register">

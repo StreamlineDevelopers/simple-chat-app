@@ -33,7 +33,10 @@ export const updateUserInfo = (history, input, reqData, isDecode, linkto=null, t
         });
 
         // console.log('UPDATED USER',axios.data);
-        if(type === 'modal')  setIsActive(false);
+        if(type === 'modal'){
+          setIsActive(false);
+          alert('Updated Succesfully.');
+        } 
         history.push(linkto);
         decoded = null;
   }catch (err) {

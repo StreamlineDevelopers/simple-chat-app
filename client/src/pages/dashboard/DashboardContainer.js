@@ -42,6 +42,7 @@ const DashboardContainer = () => {
             profileClickHandler ={profileClickHandler}
             isUpdateLoading = {updateUser.isLoading}
             isUserLoading = {user.isLoading}
+            user = {user}
         />
     )
 }

@@ -79,7 +79,7 @@ const EditProfileContainer = ({ isActive, setIsActive, updatedData, setUpdatedDa
             updateUserInfo(history, input, reqData, isDecode, path, type, setIsActive)(updateUserDispatch);
             setIsSubmit(false);
             setUpdatedData(formInput);
-            console.log(formInput)
+            // console.log(formInput);
         }
     }, [isSubmit])
 

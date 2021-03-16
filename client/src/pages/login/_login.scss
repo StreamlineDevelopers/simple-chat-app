@@ -22,6 +22,10 @@
         letter-spacing: 2px;
         margin: 1.5rem;
 
+        svg{
+            position: absolute;
+            right: 0;
+        }
         .error{
             text-decoration: none;
             margin-bottom: .3rem;
@@ -31,6 +35,7 @@
         h2{
             font-family: $sub;
             margin: 2rem 0;
+            letter-spacing: 5px;
         }
 
         form{
@@ -42,6 +47,8 @@
                 position: relative;
                 display: flex;
                 width: 100%;
+                background: getColors(secondary-transparent);
+
                 label{
                     position: absolute;
                     display: flex;
@@ -60,7 +67,8 @@
     
                 input{
                     padding: 0 1rem;
-                    padding-bottom:.5rem ;
+                    padding-bottom:.5rem;
+                    margin-bottom: .5rem;
                     padding-top: 1.2rem;
                     outline: none;
                     background: transparent;
@@ -68,7 +76,7 @@
                     border-bottom: 2px solid gray;
                     text-align: center;
                     width: 100%;
-    
+                    
                     &:focus,
                     &:valid{
                         border-color: getColors(active);
@@ -83,6 +91,12 @@
                             justify-content: flex-start;
                         }
                     }
+
+                    &:-webkit-autofill{
+                        transition: background-color 5000s;
+                        -webkit-text-fill-color: getColors(dark) !important;
+                    }
+
                 }
             }
     
@@ -92,8 +106,8 @@
                 padding: .3rem 1rem;
                 border-radius: 1rem;
                 border: none;
-                background: getColors(dark);
-                color: getColors(primary);
+                background: getColors(nav-purple);
+                color: getColors(dark);
                 text-transform: uppercase;
                 font-weight: bold;
                 letter-spacing: 2px;
@@ -101,7 +115,7 @@
                 transition: 150ms linear;
                 @media(hover:hover){
                     &:hover{
-                        color: getColors(secondary-light);
+                        color: white;
                     }
                 }
             }
