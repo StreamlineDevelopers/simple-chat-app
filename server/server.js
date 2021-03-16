@@ -9,12 +9,14 @@ const { addUser, removeUser, getUser, getAllUser} = require('./controllers/UserJ
 
 // socket io // created a helper for socket io that return its current values.
 const server = require('http').createServer(app);
-const io = require('socket.io')(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  }
-});
+const io = require('socket.io')(server, 
+//   {
+//   cors: {
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST"],
+//   }
+// }
+);
 
 require('dotenv').config();
 
@@ -23,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 // setup mongoose //connection to mongoDB
 mongoose.connect(
