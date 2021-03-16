@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export default (history = null) => {
+  // url from heroku // change to localhost:5000 if running locally
   const baseURL = `https://simple-chat-app-mad-server.herokuapp.com/api`;
-
+  
   let headers = {};
 
   if (localStorage.token) {

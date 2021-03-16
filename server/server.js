@@ -9,6 +9,7 @@ const { addUser, removeUser, getUser, getAllUser} = require('./controllers/UserJ
 
 // socket io // created a helper for socket io that return its current values.
 const server = require('http').createServer(app);
+// socket io
 const io = require('socket.io')(server, 
 //   {
 //   cors: {
