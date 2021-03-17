@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/simple-chat-app/static/css/main.bca2e447.chunk.css",
-    "main.js": "/simple-chat-app/static/js/main.0da5d158.chunk.js",
-    "main.js.map": "/simple-chat-app/static/js/main.0da5d158.chunk.js.map",
+    "main.css": "/simple-chat-app/static/css/main.254f67b3.chunk.css",
+    "main.js": "/simple-chat-app/static/js/main.b803fed3.chunk.js",
+    "main.js.map": "/simple-chat-app/static/js/main.b803fed3.chunk.js.map",
     "runtime-main.js": "/simple-chat-app/static/js/runtime-main.dc925430.js",
     "runtime-main.js.map": "/simple-chat-app/static/js/runtime-main.dc925430.js.map",
     "static/js/2.c755bc2e.chunk.js": "/simple-chat-app/static/js/2.c755bc2e.chunk.js",
     "static/js/2.c755bc2e.chunk.js.map": "/simple-chat-app/static/js/2.c755bc2e.chunk.js.map",
     "index.html": "/simple-chat-app/index.html",
-    "static/css/main.bca2e447.chunk.css.map": "/simple-chat-app/static/css/main.bca2e447.chunk.css.map",
+    "static/css/main.254f67b3.chunk.css.map": "/simple-chat-app/static/css/main.254f67b3.chunk.css.map",
     "static/js/2.c755bc2e.chunk.js.LICENSE.txt": "/simple-chat-app/static/js/2.c755bc2e.chunk.js.LICENSE.txt",
     "static/media/girl.af4b0a16.svg": "/simple-chat-app/static/media/girl.af4b0a16.svg",
     "static/media/stylesheet.css": "/simple-chat-app/static/media/norwester-webfont.b0f6019a.woff2",
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.dc925430.js",
     "static/js/2.c755bc2e.chunk.js",
-    "static/css/main.bca2e447.chunk.css",
-    "static/js/main.0da5d158.chunk.js"
+    "static/css/main.254f67b3.chunk.css",
+    "static/js/main.b803fed3.chunk.js"
   ]
 }
