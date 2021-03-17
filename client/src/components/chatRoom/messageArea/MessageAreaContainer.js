@@ -24,10 +24,9 @@ const MessageAreaContainer = () => {
         });
        
         setMessage('');
-        // console.log(message)
+
         // reset status on send
         statusContainer.innerHTML = '';
-        console.log(msg)
     }
 
     const textAreaChangeHandler = (e) => {

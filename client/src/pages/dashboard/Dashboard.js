@@ -8,7 +8,7 @@ const Dashboard = (props) => {
     let isUpdateLoading = props.isUpdateLoading;
     let isUserLoading = props.isUserLoading;
     let user = props.user;
-    console.log(user);
+    
     return(
         <div className="dashboard">
             <div className="dashboard-wrapper">

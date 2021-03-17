@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -9,21 +11,19 @@ const { addUser, removeUser, getUser, getAllUser} = require('./controllers/UserJ
 
 // socket io // created a helper for socket io that return its current values.
 const server = require('http').createServer(app);
-// socket io
-const io = require('socket.io')(server, 
-//   {
-//   cors: {
-//     origin: "http://localhost:3000",
-//     methods: ["GET", "POST"],
-//   }
-// }
-);
 
-require('dotenv').config();
+const io = require('socket.io')(server,{
+  cors: {
+    origin: "https://mark-makondo.github.io/simple-chat-app/",
+    methods: ["GET", "POST"],
+  }
+});
+
 
 // setup 
 app.use(express.json());
 app.use(cors());
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 5000;
