@@ -1,7 +1,7 @@
 .profile{
     @include setFlex(column, flex-start, center);
     background: getColors(primary);
-    width: 100vw;
+    width: auto !important; 
     .fa-spin{
         font-size: 3rem;
         margin: 2rem;

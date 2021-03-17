@@ -336,7 +336,7 @@ ul {
   align-items: center;
   align-content: center;
   position: relative;
-  width: 60vmin;
+  width: 60vmin !important;
   height: auto;
   background: #DCDCDC;
   border-radius: 1rem;
@@ -456,7 +456,7 @@ ul {
   align-items: center;
   align-content: center;
   position: relative;
-  width: 60vmin;
+  width: 60vmin !important;
   height: auto;
   background: #DCDCDC;
   border-radius: 1rem;
@@ -1001,7 +1001,7 @@ ul {
   align-items: center;
   align-content: center;
   background: #EEEEEE;
-  width: 100vw;
+  width: auto !important;
 }
 
 .profile .fa-spin {
