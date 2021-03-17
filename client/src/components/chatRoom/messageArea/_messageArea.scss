@@ -32,13 +32,13 @@
         }
         button{
             height: 100%;
-            padding: 0 1rem;
+            padding: 0 .2rem;
             border: none;
             background: #484848;
             color: #EEEEEE;
             text-transform: uppercase;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             outline: none;
             transition: 150ms linear;
             @media(hover:hover){

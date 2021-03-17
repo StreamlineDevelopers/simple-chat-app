@@ -1,6 +1,10 @@
 // responsive medium screen //768px
 @include media-md{
-    
+    .dashboard{
+        &__buttons{
+            @include setFlex(row, center, center);
+        }
+    }
 }
 
 // responsive large screen //1200px

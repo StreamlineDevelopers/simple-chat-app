@@ -19,6 +19,7 @@ const ChatRoomContainer = () => {
     const [userChatStatus, setUserChatStatus] = useState([]);
     const [joinedUsers, setJoinedUsers] = useState([]);
     const [isMessageLoading, setIsMessageLoading] = useState(true);
+    const [toggleActive, setToggleActive] = useState(false);
 
     const {updateUserState:{ updateUser:{result} }}  = useContext(AuthContext);
 
@@ -58,7 +59,7 @@ const ChatRoomContainer = () => {
         }
     }
 
-    //#region use effects logic
+    //#region use effects logic for socket IO chat room
     useEffect(() => {
         // this function also includes axios interceptor
         // updateUserInfo(history)(updateUserDispatch);
@@ -116,6 +117,26 @@ const ChatRoomContainer = () => {
 
     //#endregion
    
+    //#region non socket io logic
+    const toggleContactClickHandler = (e) => {
+        e.preventDefault();
+        setToggleActive(!toggleActive);
+    }
+
+    useEffect(() => {
+        let contacts = query.contactsContainer();
+
+        if(contacts){
+            if(toggleActive){
+        
+                contacts.classList.add('active');
+            }else{
+                contacts.classList.remove('active');
+            }
+        }
+    }, [toggleActive])
+
+    //#endregion
     return (
         <div>
             <ChatRoom
@@ -123,6 +144,8 @@ const ChatRoomContainer = () => {
                 joinedUsers = {joinedUsers}
                 user = {user}
                 isMessageLoading = {isMessageLoading}
+                toggleActive = {toggleActive}
+                toggleContactClickHandler = {toggleContactClickHandler}
             />
         </div>
     )

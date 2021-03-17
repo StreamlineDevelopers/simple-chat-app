@@ -1,0 +1,16 @@
+// responsive medium screen //768px
+@include media-md{
+    .message-area{
+        &-wrapper{
+            button{
+                padding: 0 1rem;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
+// responsive large screen //1200px
+@include media-lg{
+   
+}

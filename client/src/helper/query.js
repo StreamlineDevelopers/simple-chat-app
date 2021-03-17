@@ -15,7 +15,10 @@ const query = {
     textAreaSend: () =>  document.querySelector('.message-text-area'),
 
     //emojipicker
-    emojiPickerReact:() => document.querySelector('.emoji-picker-react')
+    emojiPickerReact: () => document.querySelector('.emoji-picker-react'),
+
+    //contact
+    contactsContainer: () => document.querySelector('.contacts')
 }
 
 export default query;

@@ -6,10 +6,15 @@ import MessageAreaContainer from '../../components/chatRoom/messageArea/MessageA
 import MessageHolderContainer from '../../components/chatRoom/messageHolder/MessageHolderContainer.js';
 import ContactsContainer from '../../components/chatRoom/contacts/ContactsContainer.js';
 
-const ChatRoom = ({ messages, joinedUsers, user, isMessageLoading }) => {
+const ChatRoom = ({ messages, joinedUsers, user, isMessageLoading, toggleActive, toggleContactClickHandler}) => {
 
     return (
         <div className="chat-room">
+            <div className="chat-room__contact-toggle" onClick={e => toggleContactClickHandler(e)}>
+                {toggleActive ? (  <i class="fas fa-toggle-on fa-contact"></i>) : (<i class="fas fa-toggle-off fa-contact"></i>)}
+                <span className="normal-2">Toggle Me</span>
+            </div>
+
             <div className="chat-room-container">
                 <div className="chat-room-wrapper">
                     <ScrollToBottom className="chat-room__body" scrollViewClassName='scroll-child'>

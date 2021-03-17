@@ -25,8 +25,16 @@ ul {
 }
 
 .App .body {
-  margin: 0 auto;
+  position: relative;
   flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App .body div {
+  width: 100%;
 }
 
 .navbar {
@@ -98,11 +106,27 @@ ul {
   position: relative;
   border-right: 2px solid;
   border-color: #EEEEEE;
-  padding: .5rem;
+  width: auto;
   height: 100%;
   background: #DCDCDC;
   color: #484848;
   cursor: pointer;
+  transition: 200ms linear;
+  width: 0 !important;
+}
+
+.contacts.active {
+  width: 30% !important;
+}
+
+.contacts.active .contacts-wrapper {
+  opacity: 1;
+}
+
+.contacts-wrapper {
+  padding: .5rem;
+  opacity: 0;
+  transition: 150ms linear;
 }
 
 .contacts-online-title {
@@ -193,13 +217,13 @@ ul {
 
 .message-area-wrapper button {
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 .2rem;
   border: none;
   background: #484848;
   color: #EEEEEE;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   outline: none;
   transition: 150ms linear;
 }
@@ -212,6 +236,13 @@ ul {
 
 .message-area-wrapper button:disabled {
   background: #808080;
+}
+
+@media screen and (min-width: 48em) {
+  .message-area-wrapper button {
+    padding: 0 1rem;
+    letter-spacing: 2px;
+  }
 }
 
 .message-holder {
@@ -911,11 +942,12 @@ ul {
   font-family: "norwesterregular", sans-serif;
   letter-spacing: 2px;
   margin: 3rem;
+  text-align: center;
 }
 
 .dashboard__buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -943,11 +975,22 @@ ul {
   position: relative;
   margin: 1rem;
   height: 100%;
+  width: auto !important;
 }
 
 @media (hover: hover) {
   .dashboard__buttons-room:hover svg, .dashboard__buttons-profile:hover svg {
     background: #d8d2d2;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .dashboard__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
 }
 
@@ -1131,14 +1174,43 @@ ul {
 
 .chat-room {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
   letter-spacing: 1px;
   height: 75vh;
-  width: 70vw;
-  margin-top: 2rem;
+  max-width: 70rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+.chat-room__contact-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 1rem;
+  color: #484848;
+  cursor: pointer;
+  transition: 150ms linear;
+}
+
+.chat-room__contact-toggle .fa-contact {
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.chat-room__contact-toggle span {
+  font-weight: bold;
+}
+
+@media (hover: hover) {
+  .chat-room__contact-toggle:hover .fa-contact,
+  .chat-room__contact-toggle:hover span {
+    color: #808080;
+  }
 }
 
 .chat-room-container {
@@ -1165,6 +1237,7 @@ ul {
   order: 2;
   height: 100%;
   width: 100%;
+  flex-grow: 1;
 }
 
 .chat-room__body {
@@ -1213,6 +1286,7 @@ ul {
   align-content: center;
   color: #9C9C9C;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .chat-room__message {
@@ -1238,7 +1312,7 @@ h2 {
   font-size: 0.75rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   h1 {
     font-size: 2.25rem;
   }
@@ -1253,7 +1327,7 @@ h2 {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 75em) {
   h1 {
     font-size: 2.75rem;
   }
