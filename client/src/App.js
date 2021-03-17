@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, useHistory, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, useHistory, useLocation } from 'react-router-dom';
 
 // components
 import LoginContainer from './pages/login/LoginContainer.js';
