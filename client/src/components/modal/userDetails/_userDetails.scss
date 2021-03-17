@@ -19,7 +19,7 @@
     &__wrapper{
         @include setFlex(column, center, center);
         position: relative;
-        width: 60vmin;
+        width: 60vmin !important;
         height: auto;
         background: getColors(secondary);;
         border-radius: 1rem;
